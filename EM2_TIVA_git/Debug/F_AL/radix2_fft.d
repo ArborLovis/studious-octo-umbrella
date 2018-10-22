@@ -2,7 +2,7 @@
 
 F_AL/radix2_fft.obj: ../F_AL/radix2_fft.c
 F_AL/radix2_fft.obj: ../F_AL/radix2_fft.h
-F_AL/radix2_fft.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h
+F_AL/radix2_fft.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h
 F_AL/radix2_fft.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/stdint.h
 F_AL/radix2_fft.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/stdint.h
 F_AL/radix2_fft.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/cdefs.h
@@ -36,7 +36,7 @@ F_AL/radix2_fft.obj: ../F_AL/twiddle_1024.h
 
 ../F_AL/radix2_fft.c: 
 ../F_AL/radix2_fft.h: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/stdint.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/stdint.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/cdefs.h: 

@@ -31,7 +31,7 @@ F_HAL/hal_adc.obj: D:/Tiva/TivaWare/driverlib/uart.h
 F_HAL/hal_adc.obj: D:/Tiva/TivaWare/driverlib/adc.h
 F_HAL/hal_adc.obj: D:/Tiva/TivaWare/driverlib/i2c.h
 F_HAL/hal_adc.obj: ../F_HAL/hal_gpio.h
-F_HAL/hal_adc.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_DL/dl_general.h
+F_HAL/hal_adc.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_DL/dl_general.h
 
 ../F_HAL/hal_adc.c: 
 ../F_HAL/hal_adc.h: 
@@ -64,4 +64,4 @@ D:/Tiva/TivaWare/driverlib/uart.h:
 D:/Tiva/TivaWare/driverlib/adc.h: 
 D:/Tiva/TivaWare/driverlib/i2c.h: 
 ../F_HAL/hal_gpio.h: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_DL/dl_general.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_DL/dl_general.h: 

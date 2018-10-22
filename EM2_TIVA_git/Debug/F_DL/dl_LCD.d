@@ -1,7 +1,7 @@
 # FIXED
 
 F_DL/dl_LCD.obj: ../F_DL/dl_LCD.c
-F_DL/dl_LCD.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h
+F_DL/dl_LCD.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h
 F_DL/dl_LCD.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/stdint.h
 F_DL/dl_LCD.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/stdint.h
 F_DL/dl_LCD.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/cdefs.h
@@ -30,12 +30,12 @@ F_DL/dl_LCD.obj: D:/Tiva/TivaWare/driverlib/uart.h
 F_DL/dl_LCD.obj: D:/Tiva/TivaWare/driverlib/adc.h
 F_DL/dl_LCD.obj: D:/Tiva/TivaWare/driverlib/i2c.h
 F_DL/dl_LCD.obj: ../F_DL/dl_LCD.h
-F_DL/dl_LCD.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_gpio.h
-F_DL/dl_LCD.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_ssi1.h
+F_DL/dl_LCD.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_gpio.h
+F_DL/dl_LCD.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_ssi1.h
 F_DL/dl_LCD.obj: ../F_DL/driver_fonttable.h
 
 ../F_DL/dl_LCD.c: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/stdint.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/stdint.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/cdefs.h: 
@@ -64,6 +64,6 @@ D:/Tiva/TivaWare/driverlib/uart.h:
 D:/Tiva/TivaWare/driverlib/adc.h: 
 D:/Tiva/TivaWare/driverlib/i2c.h: 
 ../F_DL/dl_LCD.h: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_gpio.h: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_ssi1.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_gpio.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_ssi1.h: 
 ../F_DL/driver_fonttable.h: 

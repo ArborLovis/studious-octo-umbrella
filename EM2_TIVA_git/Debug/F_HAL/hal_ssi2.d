@@ -1,7 +1,7 @@
 # FIXED
 
 F_HAL/hal_ssi2.obj: ../F_HAL/hal_ssi2.c
-F_HAL/hal_ssi2.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h
+F_HAL/hal_ssi2.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h
 F_HAL/hal_ssi2.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/stdint.h
 F_HAL/hal_ssi2.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/stdint.h
 F_HAL/hal_ssi2.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/cdefs.h
@@ -31,10 +31,10 @@ F_HAL/hal_ssi2.obj: D:/Tiva/TivaWare/driverlib/adc.h
 F_HAL/hal_ssi2.obj: D:/Tiva/TivaWare/driverlib/i2c.h
 F_HAL/hal_ssi2.obj: ../F_HAL/hal_ssi2.h
 F_HAL/hal_ssi2.obj: ../F_HAL/hal_gpio.h
-F_HAL/hal_ssi2.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_DL/dl_LCD.h
+F_HAL/hal_ssi2.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_DL/dl_LCD.h
 
 ../F_HAL/hal_ssi2.c: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/stdint.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/stdint.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/cdefs.h: 
@@ -64,4 +64,4 @@ D:/Tiva/TivaWare/driverlib/adc.h:
 D:/Tiva/TivaWare/driverlib/i2c.h: 
 ../F_HAL/hal_ssi2.h: 
 ../F_HAL/hal_gpio.h: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_DL/dl_LCD.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_DL/dl_LCD.h: 

@@ -2,7 +2,7 @@
 
 F_AL/Scramble_data.obj: ../F_AL/Scramble_data.c
 F_AL/Scramble_data.obj: ../F_AL/Scramble_data.h
-F_AL/Scramble_data.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h
+F_AL/Scramble_data.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h
 F_AL/Scramble_data.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/stdint.h
 F_AL/Scramble_data.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/stdint.h
 F_AL/Scramble_data.obj: D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/cdefs.h
@@ -33,7 +33,7 @@ F_AL/Scramble_data.obj: D:/Tiva/TivaWare/driverlib/i2c.h
 
 ../F_AL/Scramble_data.c: 
 ../F_AL/Scramble_data.h: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/tiva_headers.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/stdint.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/stdint.h: 
 D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include/sys/cdefs.h: 

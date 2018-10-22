@@ -29,7 +29,7 @@ main.obj: D:/Tiva/TivaWare/driverlib/ssi.h
 main.obj: D:/Tiva/TivaWare/driverlib/uart.h
 main.obj: D:/Tiva/TivaWare/driverlib/adc.h
 main.obj: D:/Tiva/TivaWare/driverlib/i2c.h
-main.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_AL/radix2_fft.h
+main.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_AL/radix2_fft.h
 main.obj: ../test_sig128.h
 
 ../main.c: 
@@ -61,5 +61,5 @@ D:/Tiva/TivaWare/driverlib/ssi.h:
 D:/Tiva/TivaWare/driverlib/uart.h: 
 D:/Tiva/TivaWare/driverlib/adc.h: 
 D:/Tiva/TivaWare/driverlib/i2c.h: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_AL/radix2_fft.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_AL/radix2_fft.h: 
 ../test_sig128.h: 

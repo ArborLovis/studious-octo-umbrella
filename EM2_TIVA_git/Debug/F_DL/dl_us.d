@@ -31,8 +31,8 @@ F_DL/dl_us.obj: D:/Tiva/TivaWare/driverlib/ssi.h
 F_DL/dl_us.obj: D:/Tiva/TivaWare/driverlib/uart.h
 F_DL/dl_us.obj: D:/Tiva/TivaWare/driverlib/adc.h
 F_DL/dl_us.obj: D:/Tiva/TivaWare/driverlib/i2c.h
-F_DL/dl_us.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_timer2.h
-F_DL/dl_us.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_us.h
+F_DL/dl_us.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_timer2.h
+F_DL/dl_us.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_us.h
 
 ../F_DL/dl_us.c: 
 ../F_DL/dl_us.h: 
@@ -65,5 +65,5 @@ D:/Tiva/TivaWare/driverlib/ssi.h:
 D:/Tiva/TivaWare/driverlib/uart.h: 
 D:/Tiva/TivaWare/driverlib/adc.h: 
 D:/Tiva/TivaWare/driverlib/i2c.h: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_timer2.h: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_us.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_timer2.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_us.h: 

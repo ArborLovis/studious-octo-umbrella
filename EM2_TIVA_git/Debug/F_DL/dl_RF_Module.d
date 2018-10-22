@@ -31,8 +31,8 @@ F_DL/dl_RF_Module.obj: D:/Tiva/TivaWare/driverlib/adc.h
 F_DL/dl_RF_Module.obj: D:/Tiva/TivaWare/driverlib/i2c.h
 F_DL/dl_RF_Module.obj: ../F_DL/dl_RF_Module.h
 F_DL/dl_RF_Module.obj: ../F_DL/dl_LCD.h
-F_DL/dl_RF_Module.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_gpio.h
-F_DL/dl_RF_Module.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_uart1.h
+F_DL/dl_RF_Module.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_gpio.h
+F_DL/dl_RF_Module.obj: D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_uart1.h
 
 ../F_DL/dl_RF_Module.c: 
 ../F_DL/../tiva_headers.h: 
@@ -65,5 +65,5 @@ D:/Tiva/TivaWare/driverlib/adc.h:
 D:/Tiva/TivaWare/driverlib/i2c.h: 
 ../F_DL/dl_RF_Module.h: 
 ../F_DL/dl_LCD.h: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_gpio.h: 
-D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_uart1.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_gpio.h: 
+D:/FH\ Joanneum/ECE16/Semester5/EM2/GitRepos/EM2_repo/studious-octo-umbrella/EM2_TIVA_git/F_HAL/hal_uart1.h: 
