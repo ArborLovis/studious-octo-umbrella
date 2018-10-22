@@ -4,3 +4,9 @@
 *.d
 *.mk
 *.obj
+*.map
+*.out
+*.xml
+*.d
+*.obj
+*.mk
