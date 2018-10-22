@@ -4,6 +4,7 @@
 *.d
 *.mk
 *.obj
+<<<<<<< HEAD
 
 #################
 ## Eclipse
@@ -22,3 +23,11 @@ local.properties
 .classpath
 .settings/
 .loadpath
+=======
+*.map
+*.out
+*.xml
+*.d
+*.obj
+*.mk
+>>>>>>> 55f671b1ad54a83b575ced7f25489fd3b2fb12f6
