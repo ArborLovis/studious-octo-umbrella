@@ -17,6 +17,8 @@ int main(void)
     static float test_q_sig[128] = { 0.0 };
 
     uint16_t i = 0;
+    // new test var
+    uint16_t test = 7;
 
     while(1)
     {
