@@ -18,7 +18,8 @@ int main(void)
 
     uint16_t i = 0;
     // new test var
-    uint16_t test = 7;
+    uint16_t test = 17;
+    uint8_t next_test = 5;
 
     while(1)
     {
