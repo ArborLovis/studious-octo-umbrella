@@ -6,9 +6,11 @@
  */
 
 
+#include "tiva_headers.h"
 #include "Source_test.h"
 #include "radix2_fft.h"
 #include "test_sig128.h"
+#include "dl_AD5601.h"
 
 static float test_i_sig[128] = { 0.0 };
 static float test_q_sig[128] = { 0.0 };
@@ -61,4 +63,22 @@ void test_fft()
    // ++++++++++++++++++++++++++++
 
    fft_radix2_var(test_i_sig, test_q_sig, 128);
+}
+
+
+
+void test_rampe_ADC56()
+{
+    static char value = 0;
+    uint16_t signal = 0;
+
+    if(value > 100)
+        value = 0;
+
+    signal = (4095.0/100.0)*(float)value;
+
+    dlAdc56WriteSetpoint(signal);
+    SysCtlDelay(1000000);
+    value++;
+
 }

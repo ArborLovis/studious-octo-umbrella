@@ -18,4 +18,5 @@
 void halSsi1Int();
 void halUsciB1Transmit(unsigned short len);
 
+
 #endif /* F_HAL_HAL_SSI1_H_ */
