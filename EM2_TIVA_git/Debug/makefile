@@ -4,7 +4,7 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS
+CG_TOOL_ROOT := C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -13,6 +13,7 @@ ORDERED_OBJS += \
 "./main.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
 "./F_AL/Scramble_data.obj" \
+"./F_AL/Source_test.obj" \
 "./F_AL/radix2_fft.obj" \
 "./F_DL/dl_LCD.obj" \
 "./F_DL/dl_RF_Module.obj" \
@@ -164,22 +165,22 @@ all: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 EM2_TIVA.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: ARM Linker'
-	"D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"EM2_TIVA.map" --heap_size=0 --stack_size=512 -i"D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/lib" -i"D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EM2_TIVA_linkInfo.xml" --rom_model -o "EM2_TIVA.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"EM2_TIVA.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/lib" -i"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EM2_TIVA_linkInfo.xml" --rom_model -o "EM2_TIVA.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 EM2_TIVA.hex: $(EXE_OUTPUTS)
 	@echo 'Building files: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo 'Invoking: ARM Hex Utility'
-	"D:/Programs/TI_CodeComp/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/bin/armhex"  -o "EM2_TIVA.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccsv8/tools/compiler/ti-cgt-arm_18.1.3.LTS/bin/armhex"  -o "EM2_TIVA.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $(strip $(EXE_OUTPUTS__QUOTED))'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "F_AL\Scramble_data.obj" "F_AL\radix2_fft.obj" "F_DL\dl_LCD.obj" "F_DL\dl_RF_Module.obj" "F_DL\dl_general.obj" "F_DL\dl_us.obj" "F_HAL\hal_adc.obj" "F_HAL\hal_gpio.obj" "F_HAL\hal_init.obj" "F_HAL\hal_pwm.obj" "F_HAL\hal_ssi1.obj" "F_HAL\hal_ssi2.obj" "F_HAL\hal_timer2.obj" "F_HAL\hal_uart1.obj" "F_HAL\hal_us.obj" "F_HAL\hal_usc.obj" 
-	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "F_AL\Scramble_data.d" "F_AL\radix2_fft.d" "F_DL\dl_LCD.d" "F_DL\dl_RF_Module.d" "F_DL\dl_general.d" "F_DL\dl_us.d" "F_HAL\hal_adc.d" "F_HAL\hal_gpio.d" "F_HAL\hal_init.d" "F_HAL\hal_pwm.d" "F_HAL\hal_ssi1.d" "F_HAL\hal_ssi2.d" "F_HAL\hal_timer2.d" "F_HAL\hal_uart1.d" "F_HAL\hal_us.d" "F_HAL\hal_usc.d" 
+	-$(RM) "main.obj" "tm4c123gh6pm_startup_ccs.obj" "F_AL\Scramble_data.obj" "F_AL\Source_test.obj" "F_AL\radix2_fft.obj" "F_DL\dl_LCD.obj" "F_DL\dl_RF_Module.obj" "F_DL\dl_general.obj" "F_DL\dl_us.obj" "F_HAL\hal_adc.obj" "F_HAL\hal_gpio.obj" "F_HAL\hal_init.obj" "F_HAL\hal_pwm.obj" "F_HAL\hal_ssi1.obj" "F_HAL\hal_ssi2.obj" "F_HAL\hal_timer2.obj" "F_HAL\hal_uart1.obj" "F_HAL\hal_us.obj" "F_HAL\hal_usc.obj" 
+	-$(RM) "main.d" "tm4c123gh6pm_startup_ccs.d" "F_AL\Scramble_data.d" "F_AL\Source_test.d" "F_AL\radix2_fft.d" "F_DL\dl_LCD.d" "F_DL\dl_RF_Module.d" "F_DL\dl_general.d" "F_DL\dl_us.d" "F_HAL\hal_adc.d" "F_HAL\hal_gpio.d" "F_HAL\hal_init.d" "F_HAL\hal_pwm.d" "F_HAL\hal_ssi1.d" "F_HAL\hal_ssi2.d" "F_HAL\hal_timer2.d" "F_HAL\hal_uart1.d" "F_HAL\hal_us.d" "F_HAL\hal_usc.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

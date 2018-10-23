@@ -11,6 +11,7 @@
 #include "dl_general.h"
 #include "hal_gpio.h"
 #include "tiva_headers.h"
+#include "hal_timer2.h"
 
 /* ~~~~~~~~~~~~ GLOBAL VARIABLES ~~~~~~~~~~~~ */
 
