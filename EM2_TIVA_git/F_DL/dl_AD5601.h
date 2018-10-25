@@ -15,10 +15,12 @@
 #define ADC56_100K          0x8000
 #define ADC56_THREE_STATE   0xC000
 
+enum AD5601_states{NORMAL, R1K, R100K, TRI_STATE};
+
 /* ~~~~~~~~~~~~ PROTOTYP ~~~~~~~~~~~~ */
 
 void dlAdc56WriteSetpoint(uint16_t value);
-void dlAdc56WriteCommand(int config);   //0 -> normal
+void dlAdc56WriteCommand(enum AD5601_states config);   //0 -> normal
                                         //1 -> 1k
                                         //2 -> 100k
                                         //3 -> Three-State

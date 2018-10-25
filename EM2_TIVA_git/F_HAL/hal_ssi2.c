@@ -26,7 +26,7 @@ void halSSI2Init()
     GPIOPinConfigure(GPIO_PB7_SSI2TX);  //enable MOSI for the ssi module
     GPIOPinConfigure(GPIO_PB5_SSI2FSS); //enable chip select
     GPIOPinTypeGPIOOutput(GPIO_PORTB_BASE, RADAR_SPI_SYNC);     //conf Chip select as output
-    GPIOPinWrite(GPIO_PORTB_BASE, RADAR_SPI_SYNC, ~RADAR_SPI_SYNC);   //drive pin low
+    GPIOPinWrite(GPIO_PORTB_BASE, RADAR_SPI_SYNC, ~RADAR_SPI_SYNC);   //drive pin low, enable DAC communication
 
     //connect pins to the ssi module 2
     GPIOPinTypeSSI(GPIO_PORTB_BASE, RADAR_SPI_MISO | RADAR_SPI_MOSI | RADAR_SPI_SCLK | RADAR_SPI_SYNC);
