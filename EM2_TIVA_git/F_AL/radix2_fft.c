@@ -11,10 +11,17 @@
 #include "twiddle_1024.h"
 #include "tiva_headers.h"
 
+#include "dl_general.h"
+
 uint8_t get_num_stage(uint16_t fft_length);
+
+extern Sensor sensor_data_;
 
 void do_fft_radix2(float* i_sig, float* q_sig, uint16_t length, float* freq_bin)
 {
+    //indicate radar data are not available at the moment
+    sensor_data_.Radar_FFT.fft_data_ready = 0;
+
     short p = FFT_STAGE_FACTOR_4;     //length of stage: 2^p
     short half = 1;
     short stage = 1;
@@ -59,10 +66,15 @@ void do_fft_radix2(float* i_sig, float* q_sig, uint16_t length, float* freq_bin)
         freq_bin[stage] = i_sig[stage];
         q_sig[stage] = q_sig[stage];
     }
+
+    sensor_data_.Radar_FFT.fft_data_ready = 1;
 }
 
 void fft_radix2_var(float* i_sig, float* q_sig, uint16_t fft_len)
 {
+    //indicate radar data are not available at the moment
+    sensor_data_.Radar_FFT.fft_data_ready = 0;
+
     uint8_t p = get_num_stage(fft_len);     //length of stage: 2^p
     uint16_t half = 1;
     uint8_t stage = 0;
@@ -99,6 +111,8 @@ void fft_radix2_var(float* i_sig, float* q_sig, uint16_t fft_len)
         }
         half = 2 * half;
     }
+
+    sensor_data_.Radar_FFT.fft_data_ready = 1;
 }
 
 uint8_t get_num_stage(uint16_t fft_length)

@@ -5,10 +5,14 @@
  *      Author: Michael
  */
 
+//HAL
 #include "hal_ssi2.h"
 #include "dl_AD5601.h"
 
-extern COM_Status_all Radar_com_;
+//DL
+#include "dl_LCD.h"
+
+extern COM_Status Radar_com_;
 
 void dlAdc56WriteSetpoint(uint16_t value)
 {

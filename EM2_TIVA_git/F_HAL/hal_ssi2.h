@@ -18,35 +18,12 @@
 void halSSI2Init();
 void halAD5601Transmit();
 
-/* ~~~~~~~~~~~~ STRUCTS ~~~~~~~~~~~~ */
-
-typedef struct
-{
-    union
-    {
-        unsigned char R;
-        struct
-        {
-            unsigned char TxSuc:1;      //set Bit, if data transmitted
-            unsigned char dummy:7;
-        }B;
-
-    }Status;
-
-    struct
-    {
-        unsigned char len;              // Länge der Daten in Bytes die übertragen werden
-        unsigned char cnt;              // Index auf momentan übertragene Daten
-        uint16_t Data[256];    // Tx Daten Array
-    }TxData;
-
-    struct
-    {
-        unsigned char len;              // Länge der empfangenen Daten
-        unsigned char is_empty;         // check if buffer has already read
-        uint16_t Data[256];    // Rx Daten Array
-    }RxData;
-
-}COM_Status_all;
+/*
+ *  This function gives information about the communication bus
+ *  with the AD5601 (DAC), if the bus is available or not.
+ *  1:  Communication is allowed
+ *  0:  Bus already busy, try again later
+ */
+uint8_t is_AD5601_com_busy();
 
 #endif /* F_HAL_HAL_SSI2_H_ */

@@ -15,12 +15,12 @@
 #include "hal_uart1.h"
 #include "hal_timer2.h"
 #include "hal_adc.h"
+#include "hal_timer3.h"
 
 #define HW_AVG_ON   0
 
 void hal_init()
 {
-   // IntMasterDisable();
     halSysClkInit();
     halGpioInit();
     //halPWMInit();
@@ -29,6 +29,6 @@ void hal_init()
     halSSI2Init();
     //halUart1Init();
     //halTimer2Init();
+    hal_GPTM_init();
     //halAdcInit(HW_AVG_ON);
-    //while(!IntMasterEnable());  //wait until interrupts are enabled, global bit
 }

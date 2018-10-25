@@ -4,11 +4,18 @@
  * main.c
  */
 
+//TIVA
 #include "tiva_headers.h"
-#include "Source_test.h"
-#include "hal_init.h"
-#include "dl_AD5601.h"
 
+//AL
+#include "Source_test.h"
+
+//HAL
+#include "hal_init.h"
+#include "hal_timer3.h"
+
+//DL
+#include "dl_AD5601.h"
 
 
 int main(void)
@@ -28,6 +35,10 @@ int main(void)
 
         //test ramp_function
         test_rampe_ADC56();
+
+        get_systime_us();
     }
+
+    return 0;
 }
 

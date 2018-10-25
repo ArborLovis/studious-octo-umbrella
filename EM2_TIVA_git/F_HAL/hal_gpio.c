@@ -129,6 +129,10 @@ void configPort_D()
     //ADC config - set as input
     GPIOPinTypeGPIOInput(GPIO_PORTD_BASE, IR2_SENSE_OUT);
     GPIOPinTypeGPIOInput(GPIO_PORTD_BASE, IR3_SENSE_OUT);
+
+    //DEBUG for timer 3 (GPTM)
+    GPIOPinTypeGPIOOutput(GPIO_PORTD_BASE, PORTD_PIN1);
+    GPIOPinWrite(GPIO_PORTD_BASE, PORTD_PIN1, ~PORTD_PIN1);    //drive low for idle
 }
 
 void configPort_E()

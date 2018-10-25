@@ -11,10 +11,16 @@
 #include "radix2_fft.h"
 #include "test_sig128.h"
 #include "dl_AD5601.h"
+#include "dl_general.h"
 
-static float test_i_sig[128] = { 0.0 };
-static float test_q_sig[128] = { 0.0 };
+#include "hal_timer3.h"
 
+#define WAIT_10MS 10000
+
+//static float test_i_sig[128] = { 0.0 };
+//static float test_q_sig[128] = { 0.0 };
+
+extern Sensor sensor_data_;
 
 
 void clear_test_vect(float* vect)
@@ -44,9 +50,9 @@ void test_fft()
 
     for(i = 0; i < 128; i++)
    {
-       test_i_sig[i] = test_sig128[i];
+        sensor_data_.Radar_FFT.I_signal[i] = test_sig128[i];
        SysCtlDelay(100);
-       test_q_sig[i] = 0;
+       sensor_data_.Radar_FFT.Q_signal[i] = 0;
    }
    //do_fft_radix2(test_sample, zero_vect, 16, freq_bins);
 
@@ -62,7 +68,7 @@ void test_fft()
    */
    // ++++++++++++++++++++++++++++
 
-   fft_radix2_var(test_i_sig, test_q_sig, 128);
+   fft_radix2_var(sensor_data_.Radar_FFT.I_signal, sensor_data_.Radar_FFT.Q_signal, 128);
 }
 
 
@@ -71,14 +77,18 @@ void test_rampe_ADC56()
 {
     static char value = 0;
     uint16_t signal = 0;
+    uint64_t delta_time = 0;
 
     if(value > 100)
         value = 0;
 
     signal = (4095.0/100.0)*(float)value;
 
-    dlAdc56WriteSetpoint(signal);
-    SysCtlDelay(1000000);
-    value++;
+    if((get_systime_us() - delta_time) > WAIT_10MS)
+    {
+        delta_time = get_systime_us();
+        dlAdc56WriteSetpoint(signal);
+        value++;
+    }
 
 }

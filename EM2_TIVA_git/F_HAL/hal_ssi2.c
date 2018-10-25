@@ -10,8 +10,11 @@
 #include "hal_ssi2.h"
 #include "hal_gpio.h"
 
+//DL
+#include "dl_LCD.h"
 
-COM_Status_all Radar_com_;
+
+COM_Status Radar_com_;
 
 void halSSI2Init()
 {
@@ -53,4 +56,9 @@ void halAD5601Transmit()
     }
 
     Radar_com_.Status.B.TxSuc = 1;
+}
+
+uint8_t is_AD5601_com_busy()
+{
+    return Radar_com_.Status.B.TxSuc;
 }

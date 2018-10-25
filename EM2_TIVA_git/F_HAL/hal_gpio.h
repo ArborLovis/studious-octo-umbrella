@@ -33,6 +33,7 @@
 
 /* ~~~~~~~~~~~~~~~~~~~~ PORT D ~~~~~~~~~~~~~~~~~~~~ */
 #define US1_DRIVER_EN   GPIO_PIN_0
+#define PORTD_PIN1      GPIO_PIN_1
 #define IR3_SENSE_OUT   GPIO_PIN_2
 #define IR2_SENSE_OUT   GPIO_PIN_3
 #define REMOTE_CH1      GPIO_PIN_6

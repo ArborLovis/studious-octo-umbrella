@@ -25,6 +25,8 @@
 #define NUM_CHANNEL     8
 
 #define FFT_LENGTH_512  512
+#define FFT_LENGTH_256  256
+#define FFT_LENGTH_128  128
 #define FFT_LENGTH_16   16
 
 typedef enum speed_mode {FORWARD, BACKWARD, BRAKE} SpeedMode;
@@ -68,10 +70,10 @@ typedef struct
 
     struct
     {
-        float I_signal[FFT_LENGTH_16];
-        float Q_signal[FFT_LENGTH_16];
+        float I_signal[FFT_LENGTH_128];
+        float Q_signal[FFT_LENGTH_128];
         uint8_t fft_data_ready;
-    }Radix2_FFT;
+    }Radar_FFT;
 
 
 }Sensor;
