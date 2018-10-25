@@ -11,6 +11,7 @@
 #include "hal_usc.h"
 #include "hal_us.h"
 #include "hal_ssi1.h"
+#include "hal_ssi2.h"
 #include "hal_uart1.h"
 #include "hal_timer2.h"
 #include "hal_adc.h"
@@ -19,13 +20,15 @@
 
 void hal_init()
 {
+   // IntMasterDisable();
     halSysClkInit();
     halGpioInit();
-    halPWMInit();
-    halUsInit();
-    halSsi1Int();
-    halUart1Init();
-    halTimer2Init();
-    halAdcInit(HW_AVG_ON);
+    //halPWMInit();
+    //halUsInit();
+    //halSsi1Int();
+    halSSI2Init();
+    //halUart1Init();
+    //halTimer2Init();
+    //halAdcInit(HW_AVG_ON);
     //while(!IntMasterEnable());  //wait until interrupts are enabled, global bit
 }

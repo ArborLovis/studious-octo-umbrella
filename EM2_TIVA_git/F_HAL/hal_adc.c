@@ -11,7 +11,7 @@
 #include "hal_gpio.h"
 #include "dl_general.h"
 
-extern volatile Sensor sensor_data_;
+extern Sensor sensor_data_;
 
 //Note: ADC0 and ADC1 share the same AIN - Pins!
 

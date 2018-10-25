@@ -7,7 +7,7 @@
 
 #include "dl_general.h"
 
-volatile Sensor sensor_data_;
+Sensor sensor_data_;
 
 void dlSetSteering(int16_t ctr_val)
 {
@@ -47,15 +47,17 @@ void dlSetThrottle(SpeedMode dir, int16_t speed)
     switch(dir)
     {
         case FORWARD:
+        {
             if((speed >= 0) && (speed <= 100))
                 pwm_speed = MIN_FPW_ESC + speed * 9;
             else if(speed < 0)
                 pwm_speed = MIN_FPW_ESC;
             else
                 pwm_speed = MAX_FPW_ESC;
-        break;
-
+            break;
+        }
         case BACKWARD:
+        {
             if((speed >= 0) && (speed <= 100))
             {
                 pwm_speed = MAX_BRAKE_ESC - (speed << 3);
@@ -72,9 +74,10 @@ void dlSetThrottle(SpeedMode dir, int16_t speed)
                 wait = 10000;
                 while(--wait);
             }
-        break;
-
+            break;
+        }
         case BRAKE:                          //ranges for braking are fictive
+        {
             if((speed >= 0) && (speed <= 100))
                pwm_speed = MAX_RPW_ESC - (speed * 25);
            else if(speed > 100)
@@ -82,6 +85,7 @@ void dlSetThrottle(SpeedMode dir, int16_t speed)
            else
                pwm_speed = MIN_RPW_ESC;
         break;
+        }
     }
 
     PWMPulseWidthSet(PWM1_BASE, PWM_OUT_3, pwm_speed);

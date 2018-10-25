@@ -11,6 +11,7 @@
 #include "dl_general.h"
 #include "hal_gpio.h"
 #include "tiva_headers.h"
+#include "hal_timer2.h"
 
 /* ~~~~~~~~~~~~ GLOBAL VARIABLES ~~~~~~~~~~~~ */
 
@@ -77,6 +78,7 @@ void configPort_B()
     GPIOPinTypeGPIOInput(GPIO_PORTB_BASE, US1_SIGNAL_OUT | US2_SIGNAL_OUT);
 
     //activate external Interrupt
+    /*
     GPIOIntClear(GPIO_PORTB_BASE, 0xFF);    //clear all interrupt flags
     GPIOIntRegister(GPIO_PORTB_BASE, extIntBHandler);
     GPIOIntTypeSet(GPIO_PORTB_BASE, US1_SIGNAL_OUT, GPIO_RISING_EDGE);  //interrupt is triggerd  by rising edge
@@ -84,12 +86,14 @@ void configPort_B()
     GPIOPadConfigSet(GPIO_PORTB_BASE, US1_SIGNAL_OUT, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
     GPIOPadConfigSet(GPIO_PORTB_BASE, US2_SIGNAL_OUT, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
 
+
     GPIOIntDisable(GPIO_PORTB_BASE, GPIO_INT_PIN_0 | GPIO_INT_PIN_1);
     //GPIOIntEnable(GPIO_PORTB_BASE, US2_SIGNAL_OUT); //enable ext. Int. of US1
     //GPIOIntEnable(GPIO_PORTB_BASE, US1_SIGNAL_OUT); //enable ext. Int. of US2
+     */
 
     //Pins for Radar Module
-    GPIOPinTypeGPIOOutput(GPIO_PORTB_AHB_BASE, RADAR_SPI_MOSI | RADAR_SPI_SCLK | RADAR_SPI_SYNC);
+    GPIOPinTypeGPIOOutput(GPIO_PORTB_BASE, RADAR_SPI_MOSI | RADAR_SPI_SCLK | RADAR_SPI_SYNC);
     GPIOPinWrite(GPIO_PORTB_BASE, RADAR_SPI_MOSI | RADAR_SPI_SCLK | RADAR_SPI_SYNC, 0);
 
     GPIOPinTypeGPIOInput(GPIO_PORTB_BASE, RADAR_SPI_MISO);
