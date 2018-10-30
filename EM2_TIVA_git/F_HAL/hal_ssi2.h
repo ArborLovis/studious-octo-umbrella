@@ -11,7 +11,7 @@
 #include "tiva_headers.h"
 
 #define SSI2_DATA_LEN    16              //8
-#define SSI2_CLK_SPEED   100000
+#define SSI2_CLK_SPEED   100000         //1MHz
 
 /* ~~~~~~~~~~~~ PROTOTYP ~~~~~~~~~~~~ */
 

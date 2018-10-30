@@ -17,6 +17,35 @@
 
 enum AD5601_states{NORMAL, R1K, R100K, TRI_STATE};
 
+typedef struct
+{
+    union
+    {
+        unsigned char R;
+        struct
+        {
+            unsigned char TxSuc:1;      //set Bit, if data transmitted
+            unsigned char dummy:7;
+        }B;
+
+    }Status;
+
+    struct
+    {
+        unsigned char len; // Länge der Daten in Bytes die übertragen werden
+        unsigned char cnt; // Index auf momentan übertragene Daten
+        uint16_t Data[16]; // Tx Daten Array
+    }TxData;
+
+    struct
+    {
+        unsigned char len;          // Länge der empfangenen Daten
+        unsigned char is_empty;     // check if buffer has already read
+        uint16_t Data[16];              // Rx Daten Array
+    }RxData;
+
+}COM_RADAR;
+
 /* ~~~~~~~~~~~~ PROTOTYP ~~~~~~~~~~~~ */
 
 void dlAdc56WriteSetpoint(uint16_t value);

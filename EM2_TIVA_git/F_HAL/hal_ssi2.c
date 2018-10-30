@@ -11,10 +11,10 @@
 #include "hal_gpio.h"
 
 //DL
-#include "dl_LCD.h"
+#include "dl_AD5601.h"
 
 
-COM_Status Radar_com_;
+extern COM_RADAR Radar_com_;
 
 void halSSI2Init()
 {
@@ -45,7 +45,7 @@ void halSSI2Init()
 
 void halAD5601Transmit()
 {
-    char len = 1;
+    uint8_t len = 1;
 
     Radar_com_.Status.B.TxSuc = 0;        //SPI is loaded with data, not ready anymore
 

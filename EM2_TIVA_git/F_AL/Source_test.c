@@ -83,6 +83,11 @@ void test_rampe_ADC56()
         value = 0;
 
     signal = (4095.0/100.0)*(float)value;
+/*
+    dlAdc56WriteSetpoint(signal);
+    SysCtlDelay(1000000);
+    value++;
+*/
 
     if((get_systime_us() - delta_time) > WAIT_10MS)
     {

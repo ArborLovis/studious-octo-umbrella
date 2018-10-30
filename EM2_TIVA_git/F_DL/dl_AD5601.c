@@ -7,12 +7,12 @@
 
 //HAL
 #include "hal_ssi2.h"
-#include "dl_AD5601.h"
+
 
 //DL
-#include "dl_LCD.h"
+#include "dl_AD5601.h"
 
-extern COM_Status Radar_com_;
+COM_RADAR Radar_com_;
 
 enum AD5601_states AD5601_state;
 
@@ -32,6 +32,8 @@ void dlAdc56WriteSetpoint(uint16_t value)
 
     //Write Transmitdata to struct
     Radar_com_.TxData.Data[0] = value;
+    Radar_com_.TxData.cnt = 0;
+    Radar_com_.TxData.len = 1;
 
     //Send Setpoint
     SysCtlDelay(20);
@@ -79,6 +81,8 @@ void dlAdc56WriteCommand(enum AD5601_states config)
 
     //Write Transmitdata to struct
     Radar_com_.TxData.Data[0] = Radar_com_.TxData.Data[0] | mask;
+    Radar_com_.TxData.cnt = 0;
+    Radar_com_.TxData.len = 1;
 
     //Send Setpoint
     SysCtlDelay(20);
