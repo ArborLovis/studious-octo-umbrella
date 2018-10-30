@@ -16,6 +16,8 @@
 #include "hal_timer3.h"
 
 #define WAIT_10MS 10000
+#define WAIT_1MS  1000
+#define WAIT_500us  500
 
 //static float test_i_sig[128] = { 0.0 };
 //static float test_q_sig[128] = { 0.0 };
@@ -77,19 +79,19 @@ void test_rampe_ADC56()
 {
     static char value = 0;
     uint16_t signal = 0;
-    uint64_t delta_time = 0;
+    static uint64_t delta_time = 0;
 
     if(value > 100)
         value = 0;
 
-    signal = (4095.0/100.0)*(float)value;
+    signal = (3700.0/100.0)*(float)value;
 /*
     dlAdc56WriteSetpoint(signal);
     SysCtlDelay(1000000);
     value++;
 */
 
-    if((get_systime_us() - delta_time) > WAIT_10MS)
+    if((get_systime_us() - delta_time) > 1500)
     {
         delta_time = get_systime_us();
         dlAdc56WriteSetpoint(signal);

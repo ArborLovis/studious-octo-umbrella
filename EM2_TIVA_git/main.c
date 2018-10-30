@@ -23,7 +23,7 @@ int main(void)
     while(1)
     {
         //FFT Test function
-        test_fft();
+        //test_fft();
 
 
         //test ramp_function
