@@ -27,7 +27,7 @@ int main(void)
 
 
         //test ramp_function
-        test_rampe_ADC56();
+       // test_rampe_ADC56();
     }
 
     return 0;
