@@ -28,4 +28,13 @@ void halRadarSamplesIQ();
 
 void startADC1();
 
+typedef struct
+{
+    int dead_samples_;
+    char data_release_;
+    char fft_done_;
+    float radar_buffer_i_[256];
+    float radar_buffer_q_[256];
+}RADAR_BUFFER_ADC;
+
 #endif /* F_HAL_HAL_ADC_H_ */

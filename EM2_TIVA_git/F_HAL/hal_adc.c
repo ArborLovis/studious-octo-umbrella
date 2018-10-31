@@ -11,6 +11,8 @@
 #include "hal_gpio.h"
 #include "dl_general.h"
 
+
+
 void ADC1ISR();
 
 #pragma DATA_ALIGN(DMAcontroltable, 1024)
@@ -22,8 +24,9 @@ uint8_t DMAcontroltable[1024];
 extern Sensor sensor_data_;
 uint8_t adc_finished_ = 1;
 
-uint32_t radar_adc_[2] = {0};
 uint16_t buffer[16] = {0};
+
+RADAR_BUFFER_ADC radar_data_;
 
 //Note: ADC0 and ADC1 share the same AIN - Pins!
 
@@ -114,11 +117,24 @@ void halAdc1Init(bool enable_hw_avg)
     ADCIntClear(ADC1_BASE, ADC_SS1);
     //ADCIntRegister(ADC1_BASE, ADC_SS1, ADC1ISR);
     //ADCIntEnable(ADC1_BASE, ADC_SS1);
+
+    radar_data_.data_release_ = 0;
+    radar_data_.fft_done_ = 0;
+    radar_data_.dead_samples_ = 20;
+
+    int i = 0;
+    for(i=0; i<256; i++)
+    {
+        radar_data_.radar_buffer_i_[i] = 0;
+        radar_data_.radar_buffer_i_[i] = 0;
+    }
+
 }
 
 void ADC1ISR()
 {
     adc_finished_ = 0;
+
     ADCIntClear(ADC1_BASE, ADC_SS1);
     uDMAChannelTransferSet(UDMA_CHANNEL_ADC1 | UDMA_PRI_SELECT, UDMA_MODE_BASIC, (void*)(ADC1_BASE | ADC_SSFIFO0_DATA_M),
                            buffer, 2);
@@ -138,11 +154,43 @@ void halGetAdcSamples()
 
 void halRadarSamplesIQ()
 {
+    static int cnt = 0;
+    uint32_t radar_adc[2] = {0};
+    static uint32_t radar_buffer[2][256] = {{0}, {0}};
+
     ADCProcessorTrigger(ADC1_BASE, ADC_SS1);
     while(ADCBusy(ADC1_BASE));  //wait until conversion finished
 
     ADCIntClear(ADC1_BASE, ADC_SS1);
-    ADCSequenceDataGet(ADC1_BASE, ADC_SS1, radar_adc_);
+    ADCSequenceDataGet(ADC1_BASE, ADC_SS1, radar_adc);
+
+    if(cnt < 255)
+    {
+        radar_buffer[0][cnt] = radar_adc[0];
+        radar_buffer[1][cnt] = radar_adc[1];
+        cnt++;
+    }
+    else
+        cnt = 0;
+
+    if(cnt == 0)
+    {
+        int i = 0;
+        for(i=0; i<256; i++)
+        {
+            if(i <= radar_data_.dead_samples_)
+            {
+                radar_data_.radar_buffer_i_[i] = 0;
+                radar_data_.radar_buffer_q_[i] = 0;
+            }
+            else
+            {
+                radar_data_.radar_buffer_i_[i] = (float)radar_buffer[0][i];
+                radar_data_.radar_buffer_q_[i] = (float)radar_buffer[1][i];
+            }
+        }
+        radar_data_.data_release_ = 1;
+    }
 }
 
 void startADC1()

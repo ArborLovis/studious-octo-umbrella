@@ -3,6 +3,7 @@
 
 //AL
 #include "Source_test.h"
+#include "radix2_fft.h"
 
 //HAL
 #include "hal_init.h"
@@ -13,6 +14,7 @@
 #include "dl_AD5601.h"
 
 extern uint8_t adc_finished_;
+extern RADAR_BUFFER_ADC radar_data_;
 
 int main(void)
 {
@@ -35,8 +37,18 @@ int main(void)
         }
 */
         //test ramp_function
-        halRadarSamplesIQ();
-        test_rampe_ADC56();
+        //halRadarSamplesIQ();
+        //test_rampe_ADC56();
+
+        //SysCtlDelay(100);
+
+        if(radar_data_.data_release_)
+        {
+            fft_radix2_var(radar_data_.radar_buffer_i_, radar_data_.radar_buffer_q_, 256);
+            radar_data_.data_release_ = 0;
+        }
+
+
     }
 
     return 0;

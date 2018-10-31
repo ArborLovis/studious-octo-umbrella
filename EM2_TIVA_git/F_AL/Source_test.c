@@ -50,11 +50,20 @@ void test_fft()
 {
     uint16_t i = 0;
 
-    for(i = 0; i < 128; i++)
+    for(i = 0; i < 256; i++)
    {
-        sensor_data_.Radar_FFT.I_signal[i] = test_sig128[i];
-       SysCtlDelay(100);
-       sensor_data_.Radar_FFT.Q_signal[i] = 0;
+        if(i < 128)
+        {
+            sensor_data_.Radar_FFT.I_signal[i] = test_sig128[i];
+           SysCtlDelay(100);
+           sensor_data_.Radar_FFT.Q_signal[i] = 0;
+        }
+        else
+        {
+            sensor_data_.Radar_FFT.Q_signal[i] = 0;
+            sensor_data_.Radar_FFT.I_signal[i] = 0;
+        }
+
    }
    //do_fft_radix2(test_sample, zero_vect, 16, freq_bins);
 
@@ -70,7 +79,7 @@ void test_fft()
    */
    // ++++++++++++++++++++++++++++
 
-   fft_radix2_var(sensor_data_.Radar_FFT.I_signal, sensor_data_.Radar_FFT.Q_signal, 128);
+   fft_radix2_var(sensor_data_.Radar_FFT.I_signal, sensor_data_.Radar_FFT.Q_signal, 256);
 }
 
 

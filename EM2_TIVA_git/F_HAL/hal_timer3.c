@@ -12,6 +12,7 @@
 //HAL
 #include "hal_timer3.h"
 #include "hal_gpio.h"
+#include "hal_adc.h"
 
 //#define DEBUG_GPTM  1
 void timer3AIsr();
@@ -77,21 +78,31 @@ void timer3BIsr()
 
     // Send new SPI-Value
     static int value = 0;
-    static char updown = 1;
+    //static char updown = 1;
     uint16_t signal = 0;
 
-    if(value == 0)
-        updown = 1;
-    else if(value >= 128)
-        updown = 0;
+    //if(value == 0)
+    //    updown = 1;
+    //else if(value >= 128)
+    //    updown = 0;
 
 
-    signal = 28*value;      //Steps with 14 is signal up to 3584
+
+
+    signal = 14*value;      //Steps with 14 is signal up to 3584
     dlAdc56WriteSetpoint(signal);
-    if(updown)
+
+    if(value < 255)
         value++;
     else
-        value--;
+        value = 0;
+
+    //if(updown)
+    //     value++;
+    //else
+    //    value--;
+
+    halRadarSamplesIQ();
 
 }
 
