@@ -32,3 +32,24 @@ local.properties
 *.obj
 *.mk
 >>>>>>> 55f671b1ad54a83b575ced7f25489fd3b2fb12f6
+EM2_TIVA_git/Debug/tm4c123gh6pm_startup_ccs.obj
+EM2_TIVA_git/Debug/main.obj
+EM2_TIVA_git/Debug/F_HAL/hal_usc.obj
+EM2_TIVA_git/Debug/F_HAL/hal_us.obj
+EM2_TIVA_git/Debug/F_HAL/hal_uart1.obj
+EM2_TIVA_git/Debug/F_HAL/hal_timer2.obj
+EM2_TIVA_git/Debug/F_HAL/hal_ssi2.obj
+EM2_TIVA_git/Debug/F_HAL/hal_ssi1.obj
+EM2_TIVA_git/Debug/F_HAL/hal_pwm.obj
+EM2_TIVA_git/Debug/F_HAL/hal_init.obj
+EM2_TIVA_git/Debug/F_HAL/hal_gpio.obj
+EM2_TIVA_git/Debug/F_HAL/hal_adc.obj
+EM2_TIVA_git/Debug/F_DL/dl_us.obj
+EM2_TIVA_git/Debug/F_DL/dl_RF_Module.obj
+EM2_TIVA_git/Debug/F_DL/dl_LCD.obj
+EM2_TIVA_git/Debug/F_DL/dl_general.obj
+EM2_TIVA_git/Debug/F_AL/Scramble_data.obj
+EM2_TIVA_git/Debug/F_AL/radix2_fft.obj
+EM2_TIVA_git/Debug/EM2_TIVA_linkInfo.xml
+EM2_TIVA_git/Debug/EM2_TIVA.out
+EM2_TIVA_git/Debug/EM2_TIVA.map
