@@ -35,12 +35,8 @@ int main(void)
         }
 */
         //test ramp_function
-<<<<<<< HEAD
         halRadarSamplesIQ();
         test_rampe_ADC56();
-=======
-       // test_rampe_ADC56();
->>>>>>> 29012177892980e1f6d2d7e1ca96ca519e74c24d
     }
 
     return 0;
