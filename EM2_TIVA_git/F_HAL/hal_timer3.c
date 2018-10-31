@@ -7,14 +7,16 @@
 
 //TIVA
 #include "tiva_headers.h"
+#include "dl_AD5601.h"
 
 //HAL
 #include "hal_timer3.h"
 #include "hal_gpio.h"
 
 //#define DEBUG_GPTM  1
+void timer3AIsr();
+void timer3BIsr();
 
-void timer3ISR();
 
 volatile uint64_t gptm_systime_64us_steps = 0;
 
@@ -27,20 +29,34 @@ void hal_GPTM_init()
     SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER3);
     while(!SysCtlPeripheralReady(SYSCTL_PERIPH_TIMER3)); //wait until timer 3 module is ready
 
-    TimerDisable(TIMER3_BASE, TIMER_A); //safety measure, to be sure
+
     TimerClockSourceSet(TIMER3_BASE, TIMER_CLOCK_SYSTEM);
-    TimerConfigure(TIMER3_BASE, TIMER_CFG_A_PERIODIC);  //timer count down
+    TimerConfigure(TIMER3_BASE, TIMER_CFG_SPLIT_PAIR | TIMER_CFG_A_PERIODIC | TIMER_CFG_B_PERIODIC);  //timer count down
+
+    //Timer A Configuration
+    TimerDisable(TIMER3_BASE, TIMER_A); //safety measure, to be sure
     TimerLoadSet(TIMER3_BASE, TIMER_A, GPTM_PERIOD);  //precision is 8us
     TimerEnable(TIMER3_BASE, TIMER_A);
 
-    //configuration for the interrupt handling
+    //configuration for the interrupt handling of Timer A
     TimerIntClear(TIMER3_BASE, TIMER_TIMA_TIMEOUT);
-    TimerIntRegister(TIMER3_BASE, TIMER_A, timer3ISR);
+    TimerIntRegister(TIMER3_BASE, TIMER_A, timer3AIsr);
     TimerIntEnable(TIMER3_BASE, TIMER_TIMA_TIMEOUT);
+
+
+    //Timer B Configuration
+    TimerDisable(TIMER3_BASE, TIMER_B);
+    TimerLoadSet(TIMER3_BASE, TIMER_B, RADAR_SWEEP_PERIOD);  //precision is 8us
+    TimerEnable(TIMER3_BASE, TIMER_B);
+
+    //configuration for the interrupt handling of Timer A
+    TimerIntClear(TIMER3_BASE, TIMER_TIMB_TIMEOUT);
+    TimerIntRegister(TIMER3_BASE, TIMER_B, timer3BIsr);
+    TimerIntEnable(TIMER3_BASE, TIMER_TIMB_TIMEOUT);
 
 }
 
-void timer3ISR()
+void timer3AIsr()
 {
 #ifdef  DEBUG_GPTM
     static volatile uint8_t toggle = 0;
@@ -54,6 +70,32 @@ void timer3ISR()
     TimerIntClear(TIMER3_BASE, TIMER_TIMA_TIMEOUT);
     gptm_systime_64us_steps++;
 }
+
+void timer3BIsr()
+{
+    TimerIntClear(TIMER3_BASE, TIMER_TIMB_TIMEOUT);
+
+    // Send new SPI-Value
+    static int value = 0;
+    static char updown = 1;
+    uint16_t signal = 0;
+
+    if(value == 0)
+        updown = 1;
+    else if(value >= 128)
+        updown = 0;
+
+
+    signal = 28*value;      //Steps with 14 is signal up to 3584
+    dlAdc56WriteSetpoint(signal);
+    if(updown)
+        value++;
+    else
+        value--;
+
+}
+
+
 
 uint64_t get_systime_us()
 {

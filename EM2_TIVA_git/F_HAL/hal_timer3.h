@@ -19,9 +19,12 @@
 #define F_HAL_HAL_TIMER3_H_
 
 // GPTM_PERIOD = 64us*16MHz (oszi measurement: 1022 is a better value)
-#define GPTM_PERIOD 1022    //  64µs (clock frequency 16MHz)
+#define GPTM_PERIOD 1022            //  64µs (clock frequency 16MHz)
+#define RADAR_SWEEP_PERIOD 9375     //9375 -> T = 150ms, 256 steps, 9375 = 150ms/256*16MHz
 
 void hal_GPTM_init();
+
+
 
 //the system time can be read after the timer has been enabled.
 //otherwise the system time is always zero
