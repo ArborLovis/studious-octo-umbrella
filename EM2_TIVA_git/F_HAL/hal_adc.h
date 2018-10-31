@@ -21,7 +21,11 @@
 #define ADC_SAMPLE_ORDER_4        4
 #define ADC_SAMPLE_ORDER_5        5
 
-void halAdcInit(bool enable_hw_avg);
+void halAdc0Init(bool enable_hw_avg);
+void halAdc1Init(bool enable_hw_avg);
 void halGetAdcSamples();
+void halRadarSamplesIQ();
+
+void startADC1();
 
 #endif /* F_HAL_HAL_ADC_H_ */

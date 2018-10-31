@@ -30,5 +30,6 @@ void hal_init()
     //halUart1Init();
     //halTimer2Init();
     hal_GPTM_init();
+    halAdc1Init(0);
     //halAdcInit(HW_AVG_ON);
 }

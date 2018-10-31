@@ -7,9 +7,12 @@
 //HAL
 #include "hal_init.h"
 #include "hal_timer3.h"
+#include "hal_adc.h"
 
 //DL
 #include "dl_AD5601.h"
+
+extern uint8_t adc_finished_;
 
 int main(void)
 {
@@ -24,9 +27,15 @@ int main(void)
     {
         //FFT Test function
         //test_fft();
-
-
+/*
+        if(adc_finished_)
+        {
+            adc_finished_ = 0;
+            startADC1();
+        }
+*/
         //test ramp_function
+        halRadarSamplesIQ();
         test_rampe_ADC56();
     }
 

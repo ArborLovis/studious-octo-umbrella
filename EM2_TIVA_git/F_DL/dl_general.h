@@ -70,11 +70,10 @@ typedef struct
 
     struct
     {
-        float I_signal[FFT_LENGTH_128];
-        float Q_signal[FFT_LENGTH_128];
+        float I_signal[FFT_LENGTH_512];
+        float Q_signal[FFT_LENGTH_512];
         uint8_t fft_data_ready;
     }Radar_FFT;
-
 
 }Sensor;
 
