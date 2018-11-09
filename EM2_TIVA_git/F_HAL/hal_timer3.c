@@ -89,10 +89,11 @@ void timer3BIsr()
 
 
 
-    signal = 14*value;      //Steps with 14 is signal up to 3584
+    signal = 7*value;      //Steps with 7 is signal up to 3584 for 512 steps
+    //signal = 14*value;      //Steps with 14 is signal up to 3584 for 256 steps
     dlAdc56WriteSetpoint(signal);
 
-    if(value < 255)
+    if(value < RADAR_BUFFER_SIZE-1)
         value++;
     else
         value = 0;

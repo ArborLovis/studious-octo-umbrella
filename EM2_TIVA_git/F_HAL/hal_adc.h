@@ -9,6 +9,7 @@
 #define F_HAL_HAL_ADC_H_
 
 #include "../tiva_headers.h"
+#include "dl_AD5601.h"
 
 #define ADC_SS0                   0     //8 samples per sequence
 #define ADC_SS1                   1     //4 samples per sequence
@@ -33,8 +34,9 @@ typedef struct
     int dead_samples_;
     char data_release_;
     char fft_done_;
-    float radar_buffer_i_[256];
-    float radar_buffer_q_[256];
+    float radar_buffer_i_[RADAR_BUFFER_SIZE];
+    float radar_buffer_q_[RADAR_BUFFER_SIZE];
+    float radar_pwr_[RADAR_BUFFER_SIZE];
 }RADAR_BUFFER_ADC;
 
 #endif /* F_HAL_HAL_ADC_H_ */

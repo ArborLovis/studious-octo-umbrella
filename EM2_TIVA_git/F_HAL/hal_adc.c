@@ -11,6 +11,8 @@
 #include "hal_gpio.h"
 #include "dl_general.h"
 
+#include "dl_AD5601.h"
+
 
 
 void ADC1ISR();
@@ -120,7 +122,7 @@ void halAdc1Init(bool enable_hw_avg)
 
     radar_data_.data_release_ = 0;
     radar_data_.fft_done_ = 0;
-    radar_data_.dead_samples_ = 20;
+    radar_data_.dead_samples_ = 60;
 
     int i = 0;
     for(i=0; i<256; i++)
@@ -156,7 +158,7 @@ void halRadarSamplesIQ()
 {
     static int cnt = 0;
     uint32_t radar_adc[2] = {0};
-    static uint32_t radar_buffer[2][256] = {{0}, {0}};
+    static uint32_t radar_buffer[2][RADAR_BUFFER_SIZE] = {{0}, {0}};
 
     ADCProcessorTrigger(ADC1_BASE, ADC_SS1);
     while(ADCBusy(ADC1_BASE));  //wait until conversion finished
@@ -164,7 +166,7 @@ void halRadarSamplesIQ()
     ADCIntClear(ADC1_BASE, ADC_SS1);
     ADCSequenceDataGet(ADC1_BASE, ADC_SS1, radar_adc);
 
-    if(cnt < 255)
+    if(cnt < RADAR_BUFFER_SIZE-1)
     {
         radar_buffer[0][cnt] = radar_adc[0];
         radar_buffer[1][cnt] = radar_adc[1];
@@ -176,7 +178,7 @@ void halRadarSamplesIQ()
     if(cnt == 0)
     {
         int i = 0;
-        for(i=0; i<256; i++)
+        for(i=0; i<RADAR_BUFFER_SIZE; i++)
         {
             if(i <= radar_data_.dead_samples_)
             {
