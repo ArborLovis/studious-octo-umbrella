@@ -45,6 +45,22 @@ int main(void)
         if(radar_data_.data_release_)
         {
             fft_radix2_var(radar_data_.radar_buffer_i_, radar_data_.radar_buffer_q_, 256);
+<<<<<<< HEAD
+=======
+            radar_data_.data_release_ = 0;
+
+            int i;
+            for(i=0; i<RADAR_BUFFER_SIZE;i++)
+            {
+                if(i > 1)
+                    radar_data_.radar_pwr_[i] = radar_data_.radar_buffer_i_[i]*radar_data_.radar_buffer_i_[i] + radar_data_.radar_buffer_q_[i]*radar_data_.radar_buffer_q_[i];
+                else
+                    radar_data_.radar_pwr_[i] = 0;
+            }
+            i = 0;
+            SysCtlDelay(1000000);
+        }
+>>>>>>> 7ad48c7323bfa369ce694961c062f37c44cdcdf4
 
 
             radar_data_.data_release_ = 0;

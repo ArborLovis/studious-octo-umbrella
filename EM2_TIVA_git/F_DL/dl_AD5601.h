@@ -15,6 +15,8 @@
 #define ADC56_100K          0x8000
 #define ADC56_THREE_STATE   0xC000
 
+#define RADAR_BUFFER_SIZE 512
+
 enum AD5601_states{NORMAL, R1K, R100K, TRI_STATE};
 
 typedef struct
