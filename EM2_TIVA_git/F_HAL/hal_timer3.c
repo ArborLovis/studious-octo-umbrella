@@ -86,9 +86,6 @@ void timer3BIsr()
     //else if(value >= 128)
     //    updown = 0;
 
-
-
-
     signal = 14*value;      //Steps with 14 is signal up to 3584
     dlAdc56WriteSetpoint(signal);
 

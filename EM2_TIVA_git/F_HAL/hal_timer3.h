@@ -20,7 +20,7 @@
 
 // GPTM_PERIOD = 64us*16MHz (oszi measurement: 1022 is a better value)
 #define GPTM_PERIOD 1022            //  64µs (clock frequency 16MHz)
-#define RADAR_SWEEP_PERIOD 9375     //9375 -> T = 150ms, 256 steps, 9375 = 150ms/256*16MHz
+#define RADAR_SWEEP_PERIOD 9375     //9375 -> T = 150ms, 256 steps, 9375 = 150ms/256*16MHz --> 585,9µs
 
 void hal_GPTM_init();
 

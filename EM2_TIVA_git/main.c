@@ -45,10 +45,10 @@ int main(void)
         if(radar_data_.data_release_)
         {
             fft_radix2_var(radar_data_.radar_buffer_i_, radar_data_.radar_buffer_q_, 256);
+
+
             radar_data_.data_release_ = 0;
         }
-
-
     }
 
     return 0;
