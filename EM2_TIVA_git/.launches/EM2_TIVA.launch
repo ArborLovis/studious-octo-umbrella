@@ -23,7 +23,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.D:\FH Joanneum\ECE16\Semester5\EM2\GitRepos\EM2_repo\studious-octo-umbrella\EM2_TIVA_git\TivaDebug.ccxml.Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0" value="EM2_TIVA"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:EM2_TIVA}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.D:\Ablage\FH-Joanneum\Semester_5\EM2\Git\studious-octo-umbrella\EM2_TIVA_git\TivaDebug.ccxml.Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0" value="D:/Ablage\FH-Joanneum\Semester_5\EM2\Git\studious-octo-umbrella\EM2_TIVA_git\Debug\EM2_TIVA.out"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.D:\FH Joanneum\ECE16\Semester5\EM2\CC8_WS\EM2_TIVA\TivaDebug.ccxml.Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0" value="D:/FH Joanneum\ECE16\Semester5\EM2\CC8_WS\EM2_TIVA\Debug\EM2_TIVA.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.D:\FH Joanneum\ECE16\Semester5\EM2\CC8_WS\EM2_TIVA\TivaDebug.ccxml.Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0" value="D:/FH Joanneum\ECE16\Semester5\EM2\GitRepos\EM2_repo\studious-octo-umbrella\EM2_TIVA_git\Debug\EM2_TIVA.out"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.D:\FH Joanneum\ECE16\Semester5\EM2\GitRepos\EM2_repo\studious-octo-umbrella\EM2_TIVA_git\TivaDebug.ccxml.Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0" value="D:/FH Joanneum\ECE16\Semester5\EM2\GitRepos\EM2_repo\studious-octo-umbrella\EM2_TIVA_git\Debug\EM2_TIVA.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/EM2_TIVA"/>

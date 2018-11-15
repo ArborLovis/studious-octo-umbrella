@@ -86,18 +86,13 @@ void timer3BIsr()
     //else if(value >= 128)
     //    updown = 0;
 
-<<<<<<< HEAD
-    signal = 14*value;      //Steps with 14 is signal up to 3584
-=======
 
+    signal = 7*value;           //Steps with 7 is signal up to 3584 for 512 steps
+    //signal = 14*value;        //Steps with 14 is signal up to 3584 for 256 steps
 
-
-    signal = 7*value;      //Steps with 7 is signal up to 3584 for 512 steps
-    //signal = 14*value;      //Steps with 14 is signal up to 3584 for 256 steps
->>>>>>> 7ad48c7323bfa369ce694961c062f37c44cdcdf4
     dlAdc56WriteSetpoint(signal);
 
-    if(value < RADAR_BUFFER_SIZE-1)
+    if(value < RADAR_BUFFER_SIZE)   //change: previous -1
         value++;
     else
         value = 0;
@@ -107,8 +102,8 @@ void timer3BIsr()
     //else
     //    value--;
 
+    //samplefrequency 293µs (3412,97kHz) --> fs/2 = 1706,48kHz
     halRadarSamplesIQ();
-
 }
 
 

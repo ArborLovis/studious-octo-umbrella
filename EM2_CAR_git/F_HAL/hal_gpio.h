@@ -24,6 +24,8 @@ typedef struct {
 }ButtonCom;
 
 // +++++++ PORT A ++++++++
+#define UART0_RX        GPIO_PIN_0
+#define UART0_TX        GPIO_PIN_1
 #define LCD_BACKLIGHT   GPIO_PIN_2
 #define LCD_A0          GPIO_PIN_3
 #define LCD_RST         GPIO_PIN_4

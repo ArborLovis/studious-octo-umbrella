@@ -14,6 +14,7 @@
 #include "hal_timer0A.h"
 #include "hal_ucs.h"
 #include "hal_i2c.h"
+#include "hal_uart0.h"
 
 
 ButtonCom ButtonSwitch;
@@ -28,5 +29,6 @@ void HAL_INIT(void)
     HAL_PWM_Aktorik_Init();
     HAL_Timer0A_INIT();
     HAL_SSI_Init();
-    InitI2C0();
+    halUart0Init();
+    //InitI2C0();
 }

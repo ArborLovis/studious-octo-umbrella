@@ -21,7 +21,8 @@ void driver_INIT(void)
     //calibrate ESC
     Driver_ESCInit();
     Driver_LCD_Init();
-    InitMPU9250(); // Set MPU9250
-    InitMagno(); // Set Magnetometer
+    //InitMPU9250(); // Set MPU9250
+    //InitMagno(); // Set Magnetometer
+    DRIVER_PC_COM_INIT();
 }
 

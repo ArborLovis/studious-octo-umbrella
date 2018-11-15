@@ -1,3 +1,4 @@
+
 #include "tiva_headers.h"
 #include "driver_aktorik.h"
 
@@ -49,12 +50,12 @@ void Driver_setThrottle(short throttleVal)
 
 void Driver_ESCInit()
 {
-    createPulses(MaxRPW,135);
-    createPulses(MinRPW,130);
-    createPulses(MinFPW,130);
-    createPulses(MaxFPW,130);
+    createPulses(MaxRPW,131);
+    createPulses(MinRPW,128);
+    createPulses(MinFPW,128);
+    createPulses(MaxFPW,128);
 
-    createPulses(MaxBreak, 40);
+    createPulses(MaxBreak, 50);
 }
 
 void createPulses(int pwm, int pulseDuration)

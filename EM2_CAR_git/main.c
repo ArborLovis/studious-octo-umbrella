@@ -7,7 +7,9 @@
 #include "driver_LCD.h"
 #include "mpu9250.h"
 #include "driver_aktorik.h"
+#include "driver_PC_com.h"
 #include "hal_general.h"
+#include "hal_uart0.h"
 
 #include <math.h>
 #include <complex.h>
@@ -35,15 +37,44 @@ void main()
     uint32_t current_clock = SysCtlClockGet(); //check the system clock
     short steer = 0;
     short ESCspeed = 0;
+    static uint16_t send_buffer[128] = {0};
+    uint32_t delay = 0;
+    uint8_t check_transmit = 0;
 
-    while(10)
+    int i = 0;
+    for(; i < 128; i++)
+        send_buffer[i] = i;
+
+    i = 0;
+    while(1)
     {
-        Driver_setSteering(steer);
-        Driver_setThrottle(ESCspeed);
-        Driver_LCD_WriteUInt(ButtonSwitch.Speed, 2, 50);
-        getAccelData();
-        getgyroData();
-        getMagnetoData();
+        //Driver_setSteering(steer);
+        //Driver_setThrottle(ESCspeed);
+        //Driver_LCD_WriteUInt(ButtonSwitch.Speed, 2, 50);
+        //getAccelData();
+        //getgyroData();
+        //getMagnetoData();
+
+        if(++delay >= 2000)
+        {
+            delay = 0;
+            /*
+            UARTCharPutNonBlocking(UART0_BASE, send_buffer[i++]);
+            UARTCharPutNonBlocking(UART0_BASE, send_buffer[i++]);
+            UARTCharPutNonBlocking(UART0_BASE, send_buffer[i++]);
+            UARTCharPutNonBlocking(UART0_BASE, send_buffer[i++]);
+
+            if(i >= 124)
+                i = 0;
+            */
+
+            if(Driver_sendDataPcUart0(send_buffer, 128))
+            {
+                check_transmit = 5;
+            }
+
+        }
+
     }
 
 }

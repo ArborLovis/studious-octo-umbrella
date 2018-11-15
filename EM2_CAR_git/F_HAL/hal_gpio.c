@@ -34,6 +34,9 @@ void HAL_GPIO_INIT(void)
     GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, LCD_BACKLIGHT);
     GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, LCD_A0);
     GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, LCD_RST);
+    //UART0
+    GPIOPinTypeGPIOOutput(GPIO_PORTA_BASE, UART0_TX);
+    GPIOPinTypeGPIOInput(GPIO_PORTA_BASE, UART0_RX);
 
     // PORT B
     //+++++++++++++++++++++++++++++

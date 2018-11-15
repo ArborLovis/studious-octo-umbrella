@@ -13,8 +13,6 @@
 
 #include "dl_AD5601.h"
 
-
-
 void ADC1ISR();
 
 #pragma DATA_ALIGN(DMAcontroltable, 1024)
@@ -125,12 +123,11 @@ void halAdc1Init(bool enable_hw_avg)
     radar_data_.dead_samples_ = 60;
 
     int i = 0;
-    for(i=0; i<256; i++)
+    for(; i < RADAR_BUFFER_SIZE; i++)
     {
         radar_data_.radar_buffer_i_[i] = 0;
         radar_data_.radar_buffer_i_[i] = 0;
     }
-
 }
 
 void ADC1ISR()
@@ -160,13 +157,13 @@ void halRadarSamplesIQ()
     uint32_t radar_adc[2] = {0};
     static uint32_t radar_buffer[2][RADAR_BUFFER_SIZE] = {{0}, {0}};
 
-    ADCProcessorTrigger(ADC1_BASE, ADC_SS1);
+    ADCProcessorTrigger(ADC1_BASE, ADC_SS1);    //start new conversion
     while(ADCBusy(ADC1_BASE));  //wait until conversion finished
 
     ADCIntClear(ADC1_BASE, ADC_SS1);
-    ADCSequenceDataGet(ADC1_BASE, ADC_SS1, radar_adc);
+    ADCSequenceDataGet(ADC1_BASE, ADC_SS1, radar_adc);  //write ADC FIFO local storage
 
-    if(cnt < RADAR_BUFFER_SIZE-1)
+    if(cnt < RADAR_BUFFER_SIZE) //change: previous -1
     {
         radar_buffer[0][cnt] = radar_adc[0];
         radar_buffer[1][cnt] = radar_adc[1];
@@ -175,23 +172,31 @@ void halRadarSamplesIQ()
     else
         cnt = 0;
 
+    //sampling one cycle done
     if(cnt == 0)
     {
         int i = 0;
-        for(i=0; i<RADAR_BUFFER_SIZE; i++)
+        for(i = 0; i < RADAR_BUFFER_SIZE; i++)
         {
-            if(i <= radar_data_.dead_samples_)
+            if(i <= radar_data_.dead_samples_)  //ignore specific number of samples
             {
-                radar_data_.radar_buffer_i_[i] = 0;
+                radar_data_.radar_buffer_i_[i] = 0;  //mean value: oszi ~1.5V
                 radar_data_.radar_buffer_q_[i] = 0;
             }
             else
             {
-                radar_data_.radar_buffer_i_[i] = (float)radar_buffer[0][i];
-                radar_data_.radar_buffer_q_[i] = (float)radar_buffer[1][i];
+                radar_data_.radar_buffer_i_[i-radar_data_.dead_samples_-1] = (float)radar_buffer[0][i];
+                radar_data_.radar_buffer_q_[i-radar_data_.dead_samples_-1] = (float)radar_buffer[1][i];
             }
         }
-        radar_data_.data_release_ = 1;
+
+        for(i = RADAR_BUFFER_SIZE; i >= RADAR_BUFFER_SIZE-radar_data_.dead_samples_; i--)
+        {
+            radar_data_.radar_buffer_i_[i] = 0;  //mean value: oszi ~1.5V
+            radar_data_.radar_buffer_q_[i] = 0;
+        }
+
+        radar_data_.data_release_ = 1;  //enable FFT calculation
     }
 }
 
