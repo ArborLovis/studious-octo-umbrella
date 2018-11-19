@@ -6,12 +6,13 @@
  */
 
 #include "tiva_headers.h"
+#include "struct_def.h"
 #include "driver_LCD.h"
 #include "driver_fonttable.h"
 #include "hal_gpio.h"
 #include "hal_ssi_lcd.h"
 
-extern SSI_Com LCD_Data;
+extern COM_Status LCD_Data;
 unsigned char LCD_Pos_Array[];
 
 void Driver_LCD_Init(void)

@@ -8,8 +8,9 @@
 #include "hal_ssi_LCD.h"
 #include "hal_gpio.h"
 #include "tiva_headers.h"
+#include  "struct_def.h"
 
-SSI_Com LCD_Data;
+extern COM_Status LCD_Data;
 
 void HAL_SSI_Init(void)
 {

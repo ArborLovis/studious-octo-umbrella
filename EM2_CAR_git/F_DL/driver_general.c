@@ -9,6 +9,8 @@
 #include "driver_general.h"
 #include "driver_aktorik.h"
 #include "driver_LCD.h"
+#include "driver_PC_com.h"
+#include "dl_AD5601.h"
 #include "mpu9250.h"
 
 #include "hal_gpio.h"
@@ -24,5 +26,6 @@ void driver_INIT(void)
     //InitMPU9250(); // Set MPU9250
     //InitMagno(); // Set Magnetometer
     DRIVER_PC_COM_INIT();
+    DRIVER_AD5621_INIT();
 }
 

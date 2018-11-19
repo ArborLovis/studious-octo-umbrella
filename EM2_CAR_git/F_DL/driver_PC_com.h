@@ -8,6 +8,7 @@
 #ifndef F_DL_DRIVER_PC_COM_H_
 #define F_DL_DRIVER_PC_COM_H_
 
+void DRIVER_PC_COM_INIT();
 void DRIVER_UART0_ISR();
 unsigned short Driver_sendDataPcUart0(unsigned short* data, unsigned short len);
 

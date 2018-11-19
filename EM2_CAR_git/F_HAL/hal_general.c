@@ -15,6 +15,9 @@
 #include "hal_ucs.h"
 #include "hal_i2c.h"
 #include "hal_uart0.h"
+#include "hal_adc.h"
+#include "hal_ssi2.h"
+#include "hal_timer3.h"
 
 
 ButtonCom ButtonSwitch;
@@ -30,5 +33,7 @@ void HAL_INIT(void)
     HAL_Timer0A_INIT();
     HAL_SSI_Init();
     halUart0Init();
+    halAdc0Init(0);     //Infrared Sensors & VBAT
+    halAdc1Init(0);     //RADAR
     //InitI2C0();
 }

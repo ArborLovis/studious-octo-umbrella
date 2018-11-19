@@ -6,14 +6,14 @@
  */
 
 #include "tiva_headers.h"
+#include "struct_def.h"
 //DL
 #include "driver_PC_com.h"
-#include "driver_general.h"
 //HAL
 
 void DRIVER_PC_COM_INIT();
 
-COM_Status uart_status_;
+extern COM_Status uart_status_;
 
 void DRIVER_PC_COM_INIT()
 {
@@ -29,7 +29,7 @@ unsigned short Driver_sendDataPcUart0(unsigned short* data, unsigned short len)
 
     if(!UARTBusy(UART0_BASE))   //check, if uart FIFO is empty
     {
-        if((len < 256) && !uart_status_.TxData.in_progress)
+        if((len < 1024) && !uart_status_.TxData.in_progress)
         {
             int cnt = 0;
             for(; cnt < len; cnt++)

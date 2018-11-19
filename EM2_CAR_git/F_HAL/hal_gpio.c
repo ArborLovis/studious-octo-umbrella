@@ -40,7 +40,12 @@ void HAL_GPIO_INIT(void)
 
     // PORT B
     //+++++++++++++++++++++++++++++
+    // Outputs
+    GPIOPinTypeGPIOOutput(GPIO_PORTB_BASE, RADAR_SPI_MOSI | RADAR_SPI_SCLK | RADAR_SPI_SYNC);
+    GPIOPinWrite(GPIO_PORTB_BASE, RADAR_SPI_MOSI | RADAR_SPI_SCLK | RADAR_SPI_SYNC, 0);
+
     // Inputs
+    GPIOPinTypeGPIOInput(GPIO_PORTB_BASE, RADAR_SPI_MISO);
 
 
     // PORT C
@@ -53,7 +58,7 @@ void HAL_GPIO_INIT(void)
     GPIOPadConfigSet(GPIO_PORTC_BASE, RPM_SENSOR,
                     GPIO_STRENGTH_2MA, GPIO_PIN_TYPE_STD_WPU);
     //UART
-    GPIOPinTypeUART(GPIO_PORTC_BASE, RF_RXD | RF_TXD);
+    GPIOPinTypeUART(GPIO_PORTC_BASE, UART_RXD_COM | UART_TXD_COM);
 
     //Interrupt Port C
     GPIOIntDisable(GPIO_PORTC_BASE, RPM_SENSOR);
@@ -65,7 +70,7 @@ void HAL_GPIO_INIT(void)
     // PORT D
     //+++++++++++++++++++++++++++++
     // Inputs
-    GPIOPinTypeGPIOInput(GPIO_PORTD_BASE, IR2_SENSE_OUT | IR3_SENSE_OUT | STOP_BUTTON);
+    GPIOPinTypeGPIOInput(GPIO_PORTD_BASE, DISTANCE_LEFT | DISTANCE_RIGHT | STOP_BUTTON);
     GPIOPadConfigSet(GPIO_PORTD_BASE, STOP_BUTTON,
                 GPIO_STRENGTH_2MA, GPIO_PIN_TYPE_STD_WPU);
 
@@ -79,13 +84,13 @@ void HAL_GPIO_INIT(void)
     // PORT E
     //+++++++++++++++++++++++++++++
     // Inputs
-    GPIOPinTypeGPIOInput(GPIO_PORTE_BASE, IR1_SENSE_OUT | VBAT_MEASURE | RADAR_IF1 | RADAR_IF2);
+    GPIOPinTypeGPIOInput(GPIO_PORTE_BASE, DISTANCE_FRONT | VBAT_MEASURE | RADAR_IF1 | RADAR_IF2);
     // Hardware
     GPIOPinConfigure(GPIO_PE4_M0PWM4);
     GPIOPinConfigure(GPIO_PE5_M0PWM5);
     // PWM Mode
-    GPIOPinTypePWM(GPIO_PORTE_BASE,US2_SIGNAL_IN);
-    GPIOPinTypePWM(GPIO_PORTE_BASE,US1_SIGNAL_IN);
+    //GPIOPinTypePWM(GPIO_PORTE_BASE,US2_SIGNAL_IN);
+    GPIOPinTypePWM(GPIO_PORTE_BASE, SONIC_FREQ_IN);
 
     // PORT F
     //+++++++++++++++++++++++++++++

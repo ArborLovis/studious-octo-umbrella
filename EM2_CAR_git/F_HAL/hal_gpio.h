@@ -29,51 +29,55 @@ typedef struct {
 #define LCD_BACKLIGHT   GPIO_PIN_2
 #define LCD_A0          GPIO_PIN_3
 #define LCD_RST         GPIO_PIN_4
-#define US2_DRIVER_EN   GPIO_PIN_5
+#define AUX_3           GPIO_PIN_5  //US2_DRIVER_EN
 #define STEERING        GPIO_PIN_6
 #define THROTTLE        GPIO_PIN_7
 
 //++++++++++++++++++++++++
 // +++++++ PORT B ++++++++
 
-#define US1_SIGNAL_OUT  GPIO_PIN_0
-#define US2_SIGNAL_OUT  GPIO_PIN_1
+#define SONIC_FREQ_IN   GPIO_PIN_0  //US1_SIGNAL_OUT
+#define MOTION_I2C_INT  GPIO_PIN_1  //US2_SIGNAL_OUT
 #define MOTION_I2C_SCL  GPIO_PIN_2
 #define MOTION_I2C_SDA  GPIO_PIN_3
 #define RADAR_SPI_SCLK  GPIO_PIN_4
 #define RADAR_SPI_SYNC  GPIO_PIN_5
-#define NC_1            GPIO_PIN_6
-#define NC_0            GPIO_PIN_7
+#define RADAR_SPI_MISO  GPIO_PIN_6  //NC_1
+#define RADAR_SPI_MOSI  GPIO_PIN_7  //NC_0
 
 //++++++++++++++++++++++++
 // +++++++ PORT C ++++++++
 
 #define RPM_SENSOR      GPIO_PIN_7
 #define RPM_SENSOR_DIR  GPIO_PIN_6
-#define RF_TXD          GPIO_PIN_4
-#define RF_RXD          GPIO_PIN_5
+#define UART_TXD_COM    GPIO_PIN_5
+#define UART_RXD_COM    GPIO_PIN_4
+#define DEBUG_PC3       GPIO_PIN_3
+#define DEBUG_PC2       GPIO_PIN_2
+#define DEBUG_PC1       GPIO_PIN_1
+#define DEBUG_PC0       GPIO_PIN_0
 
 //++++++++++++++++++++++++
 // +++++++ PORT D ++++++++
 
-#define US1_DRIVER_EN   GPIO_PIN_0
-#define RADAR_SPI_MOSI  GPIO_PIN_1
-#define IR3_SENSE_OUT   GPIO_PIN_2
-#define IR2_SENSE_OUT   GPIO_PIN_3
+#define TX_ENABLE       GPIO_PIN_0
+#define AUX_1           GPIO_PIN_1
+#define DISTANCE_LEFT   GPIO_PIN_2
+#define DISTANCE_RIGHT  GPIO_PIN_3
+#define UART_RXD_AUX    GPIO_PIN_4
+#define UART_TXD_AUX    GPIO_PIN_5
+#define TRANSPONDER     GPIO_PIN_6
+#define STOP_BUTTON     GPIO_PIN_7
 
-#define TRANSPONDER      GPIO_PIN_6
-#define STOP_BUTTON      GPIO_PIN_7
 //++++++++++++++++++++++++
 // +++++++ PORT E ++++++++
 
 #define VBAT_MEASURE    GPIO_PIN_0
-#define IR1_SENSE_OUT   GPIO_PIN_1
+#define DISTANCE_FRONT  GPIO_PIN_1
 #define RADAR_IF1       GPIO_PIN_2
 #define RADAR_IF2       GPIO_PIN_3
-#define US2_SIGNAL_IN   GPIO_PIN_4
-#define US1_SIGNAL_IN   GPIO_PIN_5
-#define REMOTE_CH1      GPIO_PIN_6
-#define REMOTE_CH2      GPIO_PIN_7
+#define AUX_2           GPIO_PIN_4
+#define SONIC_FREQ_OUT  GPIO_PIN_5
 
 //++++++++++++++++++++++++
 // +++++++ PORT F ++++++++

@@ -6,6 +6,7 @@
  */
 
 #include "tiva_headers.h"
+#include "struct_def.h"
 //DL
 #include "driver_general.h"
 #include "driver_PC_com.h"
